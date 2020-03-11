@@ -22,15 +22,18 @@ public class CustomHashMap<K, V> {
         if(table[index] == null){
             table[index] = newEntry;
         }else {
+            Entry<K, V> previousNode = null;
             Entry<K, V> currentNode = table[index];
-            while(currentNode.getNext() != null){
+            while(currentNode != null){
                 if(currentNode.getKey().equals(key)){
                     currentNode.setValue(value);
                     break;
                 }
+                previousNode = currentNode;
                 currentNode = currentNode.getNext();
             }
-            currentNode.setNext(newEntry);
+            if(previousNode != null)
+                previousNode.setNext(newEntry);
             }
     }
 
@@ -66,7 +69,6 @@ public class CustomHashMap<K, V> {
             previous = entry;
             entry = entry.getNext();
         }
-
     }
 
     public void display(){

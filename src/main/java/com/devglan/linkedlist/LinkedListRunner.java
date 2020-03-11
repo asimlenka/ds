@@ -1,6 +1,6 @@
 package com.devglan.linkedlist;
 
-public class Runner {
+public class LinkedListRunner {
 
     public static void main(String [] args){
         CustomLinkedList customLinkedList = new CustomLinkedList();
@@ -8,15 +8,15 @@ public class Runner {
         customLinkedList.insert(10);
         customLinkedList.insert(15);
         customLinkedList.insert(20);
-        customLinkedList.view();
+        customLinkedList.display();
         customLinkedList.insertAt(2, 100);
         System.out.println("********");
-        customLinkedList.view();
+        customLinkedList.display();
         System.out.println("********");
         customLinkedList.deleteNodeAt(2);
-        customLinkedList.view();
+        customLinkedList.display();
         System.out.println("********");
         customLinkedList.insertHead(50);
-        customLinkedList.view();
+        customLinkedList.display();
     }
 }

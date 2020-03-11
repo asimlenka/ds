@@ -44,7 +44,7 @@ public class CustomLinkedList {
         head = newNode;
     }
 
-    public void view(){
+    public void display(){
         if(head != null){
             Node currentNode = head;
             while(currentNode.getNextNode() != null){
