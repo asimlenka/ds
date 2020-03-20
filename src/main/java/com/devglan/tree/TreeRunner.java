@@ -14,7 +14,7 @@ public class TreeRunner {
         root = bst.insert(root, 16);
         root = bst.insert(root, 13);
 
-        BSTNode result = bst.search(root, 13);
+        BSTNode result = bst.search(root, 16);
         System.out.println(result.getData());
         System.out.println(bst.findMin(root).getData());
     }

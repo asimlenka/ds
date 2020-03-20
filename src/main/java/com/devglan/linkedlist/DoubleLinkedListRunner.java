@@ -4,12 +4,12 @@ public class DoubleLinkedListRunner {
 
     public static void main(String[] args) {
         DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-        doubleLinkedList.insert(3);
-        doubleLinkedList.insert(9);
-        doubleLinkedList.insert(40);
-        doubleLinkedList.insert(17);
-        doubleLinkedList.insert(91);
-        doubleLinkedList.insertAtTail(4);
+        doubleLinkedList.insertHead(3);
+        doubleLinkedList.insertHead(9);
+        doubleLinkedList.insertHead(40);
+        doubleLinkedList.insertHead(17);
+        doubleLinkedList.insertHead(91);
+        doubleLinkedList.insertTail(4);
         doubleLinkedList.insertAt(1, 33);
         System.out.println("Print the list");
         doubleLinkedList.traverse();

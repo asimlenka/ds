@@ -6,15 +6,19 @@ class BinarySearch {
 
     int binarySearch(int arr[], int start, int end, int searchElement) {
         if (end >= start) {
-            int mid = start + (end - start)/2;
+            int mid = (start + end)/2;
 
-            if (arr[mid] == searchElement)
+            if (searchElement == arr[mid]) {
                 return mid;
-
-            if (arr[mid] > searchElement)
+            }
+            if(searchElement < arr[mid]){
+                return binarySearch(arr, start, mid - 1, searchElement);
+            }
+            return binarySearch(arr, mid + 1, end, searchElement);
+            /*if (arr[mid] > searchElement)
                 return binarySearch(arr, start, mid - 1, searchElement);
 
-            return binarySearch(arr, mid+1, end, searchElement);
+            return binarySearch(arr, mid+1, end, searchElement);*/
         }
         return -1;
     }

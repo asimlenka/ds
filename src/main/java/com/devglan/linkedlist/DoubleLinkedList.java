@@ -1,15 +1,18 @@
 package com.devglan.linkedlist;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 public class DoubleLinkedList {
 
     private DLLNode head;
     private DLLNode tail;
-    private int length;
 
     public DoubleLinkedList(){
     }
 
-    public void insert(int data){
+    public void insertHead(int data){
         DLLNode nodeToBeInserted = new DLLNode(data);
         if(head == null){
             tail = nodeToBeInserted;
@@ -18,10 +21,9 @@ public class DoubleLinkedList {
         }
         nodeToBeInserted.setNext(head);
         head = nodeToBeInserted;
-        length++;
     }
 
-    public void insertAtTail(int data){
+    public void insertTail(int data){
         DLLNode nodeToBeInserted = new DLLNode(data);
         tail.setNext(nodeToBeInserted);
         nodeToBeInserted.setPrev(tail);
@@ -57,6 +59,8 @@ public class DoubleLinkedList {
         for(int i = 0; i < position; i++){
             temp = temp.getNext();
         }
+        List<String> s = Arrays.asList( "jhbjhbhjb");
+        s.sort(Comparator.comparing(String::length));
         temp.getPrev().setNext(temp.getNext());
         temp.getNext().setPrev(temp.getPrev());
     }
