@@ -18,5 +18,7 @@ public class LinkedListRunner {
         System.out.println("********");
         customLinkedList.insertHead(50);
         customLinkedList.display();
+        ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
+        reverseLinkedList.reverse(customLinkedList.get());
     }
 }

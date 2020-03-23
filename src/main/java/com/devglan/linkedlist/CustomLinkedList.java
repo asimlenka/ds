@@ -1,5 +1,8 @@
 package com.devglan.linkedlist;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CustomLinkedList {
 
     private Node head;
@@ -7,7 +10,7 @@ public class CustomLinkedList {
     public CustomLinkedList(){
     }
 
-    public void insert(int data){
+    public Node insert(int data){
         Node newNode = new Node(data);
         if(this.head == null){
             head = newNode;
@@ -18,6 +21,7 @@ public class CustomLinkedList {
             }
             currentNode.setNextNode(newNode);
         }
+        return head;
     }
 
     public void insertAt(int index, int data){
@@ -53,5 +57,39 @@ public class CustomLinkedList {
             }
             System.out.println(currentNode.getData());
         }
+    }
+
+    public Node reverse(){
+        Node previous = null;
+        Node current = head;
+        Node next;
+        while (current != null){
+            next = current.getNextNode();
+            current.setNextNode(previous);
+            previous = current;
+            current = next;
+        }
+        return previous;
+    }
+
+    public boolean checkLoop(){
+        boolean loopExists = false;
+        Map<Node, Integer> map = new HashMap<>();
+        Node tempNode = head;
+        while (tempNode != null){
+            if(map.get(tempNode) == null){
+                map.put(tempNode, 1);
+            }else {
+                map.put(tempNode, 2);
+                loopExists = true;
+                break;
+            }
+            tempNode = tempNode.getNextNode();
+        }
+        return loopExists;
+    }
+
+    public Node get(){
+        return this.head;
     }
 }
