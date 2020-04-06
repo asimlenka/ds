@@ -52,9 +52,7 @@ public class Dijkstra {
         return minDistanceVertex;
     }
 
-    public static void main(String[] args)
-    {
-        //https://i.imgur.com/6R8oPO1.png
+    public static void main(String[] args) {
         int graph[][] = new int[][] { { 0, 4, 8, 0, 0 },
                 { 4, 0, 2, 5, 0 },
                 { 8, 2, 0, 5, 9},
