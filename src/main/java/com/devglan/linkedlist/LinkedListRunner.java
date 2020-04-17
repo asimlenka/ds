@@ -18,5 +18,7 @@ public class LinkedListRunner {
         System.out.println("********");
         customLinkedList.insertHead(50);
         customLinkedList.display();
+        LinkedListAlgo node = new LinkedListAlgo(customLinkedList);
+        System.out.println(node.findMiddle().getData());
     }
 }
