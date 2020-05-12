@@ -1,6 +1,6 @@
 package com.devglan.lambda;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -19,8 +19,19 @@ public class Test {
     }
 
     public static void main(String[] args){
-        Test test = new Test();
-        List<String> fruits = test.function(Arrays.asList("apple", "orange"), (s1) -> s1.concat("fff"));
-        System.out.println(fruits.get(0));
+        OperateInterface multiplication = (x, y) -> x * y;
+        int mult = multiplication.operate(6, 7);
+        System.out.println(mult);
+        OperateInterface addition = (x, y) -> x + y;
+        int add = addition.operate(6, 7);
+        System.out.println(add);
+        new Thread(() -> System.out.println("run() method implementation with a lambda expression.")).start();
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        List<String> list1 = list.subList(0, 2);
+        List<String> list2 = list.subList(1, 3);
+        System.out.println();
     }
 }

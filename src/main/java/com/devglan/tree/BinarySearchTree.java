@@ -1,8 +1,5 @@
 package com.devglan.tree;
 
-import com.devglan.hashmap.Entry;
-import sun.jvm.hotspot.debugger.bsd.amd64.BsdAMD64CFrame;
-
 import java.util.*;
 
 public class BinarySearchTree {
@@ -98,51 +95,6 @@ public class BinarySearchTree {
             postOrder(root.getRight());
             System.out.print(root.getData() + " ");
         }
-    }
-
-    public void levelOrderTraversal(BSTNode root){
-        List<Integer> data = new ArrayList<>();
-        Queue<BSTNode> queue = new LinkedList<>();
-        queue.add(root);
-        while(!queue.isEmpty()){
-            BSTNode node = queue.poll();
-            data.add(node.getData());
-            if(node.getRight() != null){
-                queue.add(node.getRight());
-            }
-            if(node.getLeft() != null){
-                queue.add(node.getLeft());
-            }
-        }
-        data.stream().forEach(System.out :: print);
-    }
-
-    public void levelOrderTraversalWithLevel(BSTNode root){
-        Queue<BSTNode> queue = new LinkedList<>();
-        queue.add(root);
-        queue.add(null);
-        int nullCount = 1;
-        while(!queue.isEmpty()){
-            BSTNode node = queue.remove();
-            if(node == null){
-                ++nullCount;
-                if(nullCount == 2){
-                    break;
-                }
-                System.out.println();
-                queue.add(null);
-            }else {
-                System.out.print(node.getData());
-                nullCount = 0 ;
-                if (node.getLeft() != null) {
-                    queue.add(node.getLeft());
-                }
-                if (node.getRight() != null) {
-                    queue.add(node.getRight());
-                }
-            }
-        }
-        //data.stream().forEach(System.out :: print);
     }
 
     public List<Integer> leftView(BSTNode root){

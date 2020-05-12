@@ -65,4 +65,52 @@ public class LinkedListAlgo {
         return null;
     }
 
+    public Node sum(Node first, Node second){
+        first = reverse(first);
+        second = reverse(second);
+        int carry = 0;
+        Node newListHead = null;
+        Node current = null;
+        while (first != null || second != null){
+            int sum = carry + (first == null ? 0 : first.getData()) + (second == null ? 0: second.getData());
+            carry = sum / 10;
+            Node n1 = createNode(sum % 10);
+            if (newListHead == null){
+                newListHead = n1;
+            } else{
+                current.setNextNode(n1);
+            }
+            current = n1;
+            if (first != null){
+                first = first.getNextNode();
+            }
+            if (second != null){
+                second = second.getNextNode();
+            }
+        }
+        if (carry != 0){
+            current.setNextNode(createNode(carry));
+        }
+        newListHead = reverse(newListHead);
+        return newListHead;
+    }
+
+    private Node createNode(int data){
+        return new Node(data);
+    }
+
+    private Node reverse(Node first){
+        Node current = first;
+        Node previous = null;
+        Node next;
+        while (current.getNextNode() != null){
+            next = current.getNextNode();
+            current.setNextNode(previous);
+            previous = current;
+            current = next;
+        }
+        return previous;
+
+    }
+
 }

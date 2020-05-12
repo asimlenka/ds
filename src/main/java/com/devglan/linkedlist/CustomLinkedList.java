@@ -69,6 +69,7 @@ public class CustomLinkedList {
             previous = current;
             current = next;
         }
+        this.head = previous; //imp
         return previous;
     }
 

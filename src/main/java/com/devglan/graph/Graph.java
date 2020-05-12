@@ -67,6 +67,30 @@ public class Graph {
         }
     }
 
+    public void dfsTraversal(Node node){
+        List<Node> visitedNode = new ArrayList<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(node);
+        visitedNode.add(node);
+        while (!stack.isEmpty()){
+            List<Node> edges = adjacencyMap.get(stack.peek());
+            if (edges != null){
+                Node n = edges.stream().filter(edge -> !visitedNode.contains(edge)).findFirst().orElse(null);
+                if (n != null){
+                    stack.push(n);
+                    if (!visitedNode.contains(n)) {
+                        visitedNode.add(n);
+                    }
+                }else{
+                    stack.pop();
+                }
+            }else {
+                stack.pop();
+            }
+        }
+        visitedNode.stream().forEach(node1 -> System.out.println(node1.name));
+    }
+
     public static void main(String[] args) {
 
         Graph graph = new Graph();
@@ -80,12 +104,13 @@ public class Graph {
         graph.insert(b,c);
         graph.insert(b,d);
         graph.insert(c,e);
-        graph.insert(b,a);
+        //graph.insert(d, e);
 
         graph.traverse();
 
         System.out.println(graph.hasEdge(a,b));
         System.out.println(graph.hasEdge(d,a));
         graph.bfsTraverse(a);
+        graph.dfsTraversal(a);
     }
 }

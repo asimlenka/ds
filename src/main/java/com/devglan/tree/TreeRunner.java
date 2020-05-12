@@ -13,6 +13,7 @@ public class TreeRunner {
         root = bst.insert(root, 11);
         root = bst.insert(root, 13);
         root = bst.insert(root, 3);
+        root = bst.insert(root, 15);
 
         //BSTNode result = bst.search(root, 9);
         //System.out.println(result.getData());
@@ -20,6 +21,6 @@ public class TreeRunner {
         //bst.preOrder(root);
         //System.out.println();
         //bst.levelOrderTraversal(root);
-        bst.levelOrderTraversalWithLevel(root);
+
     }
 }
