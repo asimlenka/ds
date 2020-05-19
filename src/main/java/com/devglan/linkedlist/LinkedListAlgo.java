@@ -49,20 +49,13 @@ public class LinkedListAlgo {
 
     More the gap in which both pointers move forward, more the time they might take in worst case to meet.
     So the lowest possible iteration in which we can find their meeting points is by moving ptr2 two nodes at a time.*/
-    public Node removeLoop(){
-        Node head = customLinkedList.get();
-        Node slowPointer = head;
-        Node fastPointer = head;
-        if(head != null){
-            while (slowPointer != null && fastPointer != null && fastPointer.getNextNode() != null){
-                slowPointer = slowPointer.getNextNode();
-                fastPointer = fastPointer.getNextNode().getNextNode();
-                if(slowPointer == fastPointer){
-                    fastPointer.setNextNode(null);
-                }
-            }
+    public void removeLoop(){
+        Node loopNode = findLoop();
+        Node currentNode = customLinkedList.get();
+        while (currentNode.getNextNode() != loopNode){
+            currentNode = currentNode.getNextNode();
         }
-        return null;
+        currentNode.setNextNode(null);
     }
 
     public Node sum(Node first, Node second){

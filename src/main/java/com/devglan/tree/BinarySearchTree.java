@@ -97,27 +97,4 @@ public class BinarySearchTree {
         }
     }
 
-    public List<Integer> leftView(BSTNode root){
-        List<Integer> leftView = new ArrayList<>();
-        leftView.add(root.getData());
-        Stack<BSTNode> stack = new Stack<>();
-        stack.push(root.getRight());
-        stack.push(root.getLeft());
-        while (!stack.isEmpty()){
-
-        }
-        BSTNode node = root;
-        while (node != null){
-            if(node.getLeft() != null){
-                leftView.add(node.getLeft().getData());
-                node = node.getLeft();
-            }else if(node.getRight() != null){
-                leftView.add(node.getRight().getData());
-                node = node.getRight();
-            }
-        }
-    return null;
-    }
-
-
 }

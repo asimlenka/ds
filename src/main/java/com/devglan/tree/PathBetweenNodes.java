@@ -4,7 +4,9 @@ import java.util.Stack;
 
 public class PathBetweenNodes {
 
-    public static void printPathBetween(BinaryTreeNode root, BinaryTreeNode n1){
+    public static void printPathFromRootToNode(BinaryTreeNode root, BinaryTreeNode n1){
+
+        //to print path between any given 2 nodes, first find LCA then find path from LCA to n1 and then LCA to n2
        Stack<BinaryTreeNode> stack1 = printPath(root, n1);
        while (!stack1.isEmpty()){
            System.out.println(stack1.pop().getData());
@@ -46,7 +48,7 @@ public class PathBetweenNodes {
         root.getRightNode().getRightNode().setLeftNode(new BinaryTreeNode(25));
 
         //PathBetweenNodes.printPathBetween(root, root.getLeftNode().getLeftNode(), root.getRightNode().getRightNode().getLeftNode());
-        PathBetweenNodes.printPathBetween(root, root.getRightNode().getRightNode().getLeftNode());
+        PathBetweenNodes.printPathFromRootToNode(root, root.getRightNode().getRightNode().getLeftNode());
 
     }
 }

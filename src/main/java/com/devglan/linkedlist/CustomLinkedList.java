@@ -73,21 +73,32 @@ public class CustomLinkedList {
         return previous;
     }
 
-    public boolean checkLoop(){
+    public Node checkLoop(){
         boolean loopExists = false;
-        Map<Node, Integer> map = new HashMap<>();
-        Node tempNode = head;
-        while (tempNode != null){
-            if(map.get(tempNode) == null){
-                map.put(tempNode, 1);
-            }else {
-                map.put(tempNode, 2);
+        Node slowPointer = head;
+        Node fastPointer = head;
+        while (slowPointer != null && fastPointer != null && fastPointer.getNextNode() != null){
+            slowPointer = slowPointer.getNextNode();
+            fastPointer = fastPointer.getNextNode().getNextNode();
+            if (slowPointer == fastPointer){
                 loopExists = true;
                 break;
             }
-            tempNode = tempNode.getNextNode();
         }
-        return loopExists;
+        if (loopExists) {
+            return slowPointer;
+        }else {
+            return null;
+        }
+    }
+
+    public void removeLoop(){
+        Node loopNode = checkLoop();
+        Node currentNode = head;
+        while (currentNode.getNextNode() != loopNode){
+            currentNode = currentNode.getNextNode();
+        }
+        currentNode.setNextNode(null);
     }
 
     public Node get(){

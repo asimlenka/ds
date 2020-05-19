@@ -2,7 +2,9 @@ package com.devglan;
 
 public final class SingelettonTest {
 
-    private static SingelettonTest obj = null;
+    //may return half initialised object in case of multiple thread trying to access get instance methood
+    //because java runtime publishes half initailsed object to other threads
+    private volatile static SingelettonTest obj = null;
 
     private SingelettonTest(){
         if(obj != null){
@@ -12,7 +14,11 @@ public final class SingelettonTest {
 
     public static SingelettonTest getInstance(){
         if(obj == null){
-            obj = new SingelettonTest();
+            synchronized(SingelettonTest.class) {
+                if (obj == null) {
+                    obj = new SingelettonTest();
+                }
+            }
         }
         return obj;
     }

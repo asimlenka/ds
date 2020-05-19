@@ -108,8 +108,8 @@ public class BinaryTree {
         if (root.getRightNode() == null){
             return findHeight1(root.getLeftNode());
         }
-        int left = findHeight(root.getLeftNode());
-        int right = findHeight(root.getRightNode());
+        int left = findHeight1(root.getLeftNode());
+        int right = findHeight1(root.getRightNode());
         return Math.max(left, right) + 1;
 
     }
@@ -126,38 +126,6 @@ public class BinaryTree {
     }
 
     Map<Integer, List<BinaryTreeNode>> map = new TreeMap<>();
-
-    public void verticalOrderTraversal(BinaryTreeNode root){
-        if (root == null){
-            return;
-        }
-        int currentNodeWeight = 0;
-        List list = new ArrayList<>();
-        list.add(root);
-        map.put(currentNodeWeight, list);
-        traverse(root.getLeftNode(), -1);
-        traverse(root.getRightNode(), 1);
-
-        //traverse(root.getRightNode(), 0);
-        System.out.println(map.get(1));
-    }
-
-    public void traverse(BinaryTreeNode node, int weight){
-        if (node == null){
-            return;
-        }
-        if(node.getRightNode() == null && node.getLeftNode() == null){
-            return;
-        }
-        if(node.getLeftNode() != null){
-            putToMap(weight - 1, node.getLeftNode());
-        }
-        if(node.getRightNode() != null){
-            putToMap(weight + 1, node.getRightNode());
-        }
-        traverse(node.getLeftNode(), weight - 1);
-        traverse(node.getRightNode(), weight + 1);
-    }
 
 
     private void putToMap(int weight, BinaryTreeNode node){
@@ -222,39 +190,5 @@ public class BinaryTree {
         System.out.println(rightNode.getData());
         printRightNodeExcludingLeaf(rightNode.getRightNode());
     }
-
-    //requires inorder traversal
-    Stack<BinaryTreeNode> stack = null;
-    boolean node1Found = false;
-    boolean node2Found = false;
-    public Stack<BinaryTreeNode> findPath(BinaryTreeNode root, BinaryTreeNode node1, BinaryTreeNode node2){
-        if (root == null || (node2Found && node1Found)){
-            return stack;
-        }
-        if (root == node1 && !node1Found){
-            if (stack == null){
-                stack = new Stack<>();
-            }
-            //Stack<BinaryTreeNode> stack = new Stack<>();
-            stack.push(root);
-            node1Found = true;
-            return stack;
-        }
-        if (root == node2 && !node2Found){
-            if (stack == null){
-                stack = new Stack<>();
-            }
-            stack.push(root);
-            node2Found = true;
-            return stack;
-        }
-        stack = findPath(root.getLeftNode(), node1, node2);
-        stack = findPath(root.getRightNode(), node1, node2);
-        if(stack != null && root != null) {
-            stack.push(root);
-        }
-        return stack;
-    }
-
 
 }
