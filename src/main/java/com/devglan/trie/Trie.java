@@ -54,24 +54,6 @@ public class Trie {
         return current != null;
     }
 
-    public List<String> prefixSearch(String prefix){
-        List<String> list = new ArrayList<>();
-        TrieNode current = root;
-        int length = prefix.length();
-        for (int i = 0; i < length; i++){
-            char letter = prefix.charAt(i);
-            TrieNode node = current.getNode().get(letter);
-            if (node == null){
-                return list;
-            }
-            current = node;
-        }
-        current.node.entrySet().forEach(entry -> {
-
-        });
-        return list;
-    }
-
     public static void main(String[] args){
         Trie trie = new Trie();
         trie.insert("dhiraj");
