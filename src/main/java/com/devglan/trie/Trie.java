@@ -1,7 +1,9 @@
 package com.devglan.trie;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Trie {
 
@@ -54,6 +56,43 @@ public class Trie {
         return current != null;
     }
 
+    /*public List<String> suggestions(String prefix){
+        List<String> list = new ArrayList<>();
+        TrieNode current = root;
+        int length = prefix.length();
+        for (int i = 0; i < length; i++){
+            TrieNode node = current.getNode().get(prefix.charAt(i));
+            if (node == null){
+                return list;
+            }
+            current = node;
+        }
+        if (current.isWord){
+            list.add(prefix);
+        }
+        Map<Character, TrieNode> node = current.getNode();
+        List<Map<Character,TrieNode>> nodes = new ArrayList<>();
+        nodes.add(node);
+        String[] word = {prefix};
+        int i = 0;
+        while (i != 15) {
+            nodes.forEach(eachNode -> {
+                node.entrySet().forEach(entry -> {
+                    word[0] = word[0] + entry.getKey();
+                    if (entry.getValue().isWord) {
+                        list.add(word[0]);
+                    } else {
+                        Map map = new HashMap<>();
+                        map.put(entry.getKey(), entry.getValue());
+                        nodes.add(map);
+                    }
+                });
+            });
+        i++;
+        }
+        return list;
+    }*/
+
     public static void main(String[] args){
         Trie trie = new Trie();
         trie.insert("dhiraj");
@@ -61,5 +100,8 @@ public class Trie {
         System.out.println(trie.isCompleteWord("dhiraj"));
         System.out.println(trie.isValidPrefix("dha"));
         System.out.println(trie.isValidPrefix("ni"));
+
+        //List<String> list = trie.suggestions("dhira");
+        //System.out.println(list.size());
     }
 }

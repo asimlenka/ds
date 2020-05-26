@@ -8,17 +8,11 @@ public class LinkedListRunner {
         customLinkedList.insert(10);
         customLinkedList.insert(15);
         customLinkedList.insert(20);
+
         customLinkedList.display();
-        customLinkedList.insertAt(2, 100);
-        System.out.println("********");
+
+        System.out.println("Going to reverse the list");
+        customLinkedList.reverseRecursively();
         customLinkedList.display();
-        System.out.println("********");
-        customLinkedList.deleteNodeAt(2);
-        customLinkedList.display();
-        System.out.println("********");
-        customLinkedList.insertHead(50);
-        customLinkedList.display();
-        LinkedListAlgo node = new LinkedListAlgo(customLinkedList);
-        System.out.println(node.findMiddle().getData());
     }
 }

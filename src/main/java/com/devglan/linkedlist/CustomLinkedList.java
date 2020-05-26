@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CustomLinkedList {
 
-    private Node head;
+    Node head;
 
     public CustomLinkedList(){
     }
@@ -69,8 +69,26 @@ public class CustomLinkedList {
             previous = current;
             current = next;
         }
-        this.head = previous; //imp
+        this.head = previous;
         return previous;
+    }
+
+    public void reverseRecursively(){
+        reverseRecursively(head);
+    }
+
+    public Node reverseRecursively(Node current){
+        if (current == null){
+            return null;
+        }
+        if (current.getNextNode() == null){
+            this.head= current;
+            return current;
+        }
+        Node node = reverseRecursively(current.getNextNode());
+        current.getNextNode().setNextNode(current);
+        current.setNextNode(null);
+        return node;
     }
 
     public Node checkLoop(){
