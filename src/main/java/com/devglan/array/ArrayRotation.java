@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class ArrayRotation {
 
+    //Can be achieved in O(n) by shifting and swapping instead of O(n2)
     public static int[] rotateBy(int d, int[] input){
         int inputLength = input.length;
         for (int i = 0; i < d; i++){

@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class Array {
 
+    //try sub set problem using DP
     public static void findSumEquals(int[] arr, int sumEquals){
         int length = arr.length;
         Set<Pair> set = new HashSet<>();
