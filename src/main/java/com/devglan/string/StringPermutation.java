@@ -1,4 +1,4 @@
-package com.devglan.practise;
+package com.devglan.string;
 
 import java.util.HashSet;
 import java.util.Set;

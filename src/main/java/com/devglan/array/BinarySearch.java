@@ -1,4 +1,4 @@
-package com.devglan.practise;
+package com.devglan.array;
 
 import java.util.Arrays;
 

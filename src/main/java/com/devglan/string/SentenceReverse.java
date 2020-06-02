@@ -1,4 +1,4 @@
-package com.devglan.practise;
+package com.devglan.string;
 
 import java.util.Stack;
 import java.util.stream.Collectors;

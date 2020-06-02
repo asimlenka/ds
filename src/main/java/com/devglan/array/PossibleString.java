@@ -5,6 +5,8 @@ import java.util.List;
 
 public class PossibleString {
 
+    private final String s = "a";
+
     public static List<String> generateAllPossibleSubString(String input){
         input.toCharArray();
         List<String> result = new ArrayList<>();

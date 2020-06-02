@@ -1,4 +1,4 @@
-package com.devglan;
+package com.devglan.thread;
 
 public final class SingelettonTest {
 
@@ -24,7 +24,7 @@ public final class SingelettonTest {
     }
 
     public static void main(String [] args) throws ClassNotFoundException {
-        Class<?> test = Class.forName("com.devglan.SingelettonTest");
+        Class<?> test = Class.forName("com.devglan.thread.SingelettonTest");
         test.getDeclaredConstructors()[0].setAccessible(true);
         SingelettonTest test1 = new SingelettonTest();
         System.out.println(SingelettonTest.getInstance());

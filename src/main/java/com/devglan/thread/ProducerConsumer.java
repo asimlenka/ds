@@ -1,4 +1,4 @@
-package com.devglan.practise;
+package com.devglan.thread;
 
 import java.util.Stack;
 

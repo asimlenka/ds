@@ -1,4 +1,4 @@
-package com.devglan.practise;
+package com.devglan.string;
 
 import java.util.HashMap;
 import java.util.Map;

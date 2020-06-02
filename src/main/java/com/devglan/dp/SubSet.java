@@ -2,11 +2,9 @@ package com.devglan.dp;
 
 public class SubSet {
 
-    static int[] result = new int[10];
     //exponential time complexity. reduce to O(n) with DP and memoization
     public static boolean findSubSetSumEquals(int set[], int n, int sum){
         if (sum == 0){
-            result[n] = 1;
             return true;
         }
         if (n == 0){
@@ -17,7 +15,6 @@ public class SubSet {
         }
         return findSubSetSumEquals(set, n -1, sum) || findSubSetSumEquals(set, n - 1, sum - set[n - 1]);
     }
-
 
     /* Driver program to test above function */
     public static void main(String args[])

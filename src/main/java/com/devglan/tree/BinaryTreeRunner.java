@@ -37,9 +37,9 @@ public class BinaryTreeRunner {
         //lca.findLCAUsingStack(root, root.getLeftNode().getLeftNode(), root.getLeftNode().getRightNode());
         //BinaryTree bt = new BinaryTree();
         //bt.boundaryTraversal(root);
-        BinaryTree binaryTree = new BinaryTree();
-        System.out.println(binaryTree.findHeight(root));
-        System.out.println(binaryTree.findHeight1(root));
+        //BinaryTree binaryTree = new BinaryTree();
+        //System.out.println(binaryTree.findHeight(root));
+        //System.out.println(binaryTree.findHeight1(root));
         /*binaryTree.findPath(root, root.getLeftNode().getLeftNode(), root.getLeftNode().getRightNode() );
         while (binaryTree.stack != null && !binaryTree.stack.isEmpty()){
             System.out.println(binaryTree.stack.pop().getData());
@@ -47,6 +47,8 @@ public class BinaryTreeRunner {
 
         BinaryTreeNode node = BinaryTreeMirror.mirrorBinaryTree(root);
         System.out.println(node.getData());
+
+        System.out.println(NodeCount.countNodes(root));
     }
 
 }
