@@ -91,8 +91,8 @@ public class BinaryTree {
         }
         //int leftHeight = findHeight(root.getLeftNode()) + 1;
         //int rightHeight = findHeight(root.getRightNode()) + 1;
-        return Math.max(findHeight(root.getLeftNode()), findHeight(root.getRightNode())) + 1;
-        //return Math.max(leftHeight, rightHeight);
+        return 1 + Math.max(findHeight(root.getLeftNode()), findHeight(root.getRightNode()));
+        //return 1 + Math.max(leftHeight, rightHeight);
     }
 
     public int findHeight1(BinaryTreeNode root){
@@ -149,6 +149,49 @@ public class BinaryTree {
         //System.out.println(count + rcount + " co");
         return count + rcount;
     }
+
+    public int findLevelWithSumEquals(BinaryTreeNode root, int givenSum){
+        int currentLevelSum = 0;
+        int previousLevelSum;
+        if(root == null){
+            return 0;
+        }
+        previousLevelSum = root.getData();
+        int level = 1;
+        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        queue.add(root);
+        queue.add(null);
+        while(!queue.isEmpty()){
+
+            BinaryTreeNode node = queue.poll();
+            if(node == null){
+
+                if(previousLevelSum == givenSum){
+                    break;
+                }
+                previousLevelSum  = currentLevelSum;
+                currentLevelSum = 0;
+                level = level + 1;
+                queue.add(null);
+
+            }else {
+                if(node.getLeftNode() != null){
+                    queue.add(node.getLeftNode());
+                    currentLevelSum = currentLevelSum + node.getLeftNode().getData();
+
+                }
+                if(node.getRightNode() != null){
+                    queue.add(node.getRightNode());
+                    currentLevelSum = currentLevelSum + node.getRightNode().getData();
+                }
+
+            }
+        }
+        return level;
+
+    }
+
+
 
     public void boundaryTraversal(BinaryTreeNode root){
         System.out.println(root.getData());

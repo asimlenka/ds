@@ -1,7 +1,5 @@
 package com.devglan.tree;
 
-import java.util.Stack;
-
 public class BinaryTreeRunner {
 
     public static void main(String[] args){
@@ -17,7 +15,7 @@ public class BinaryTreeRunner {
         root.getRightNode().setRightNode(new BinaryTreeNode(15));
 
         root.getRightNode().getRightNode().setLeftNode(new BinaryTreeNode(25));
-
+        //System.out.println(tree.findHeight(root));
         /*tree.levelOrderTraversal(root);
         System.out.println();
 
@@ -45,10 +43,13 @@ public class BinaryTreeRunner {
             System.out.println(binaryTree.stack.pop().getData());
         }*/
 
-        BinaryTreeNode node = BinaryTreeMirror.mirrorBinaryTree(root);
-        System.out.println(node.getData());
+        //BinaryTreeNode node = BinaryTreeMirror.mirrorBinaryTree(root);
+        //System.out.println(node.getData());
 
-        System.out.println(NodeCount.countNodes(root));
+        //System.out.println(NodeCount.countNodes(root));
+        //System.out.println(NodeCount.countNodes(root));
+        //System.out.println(NodeCount.countNodesFromGivenLevelToLeaf(root, 3));
+        System.out.println(tree.findLevelWithSumEquals(root, 17));
     }
 
 }

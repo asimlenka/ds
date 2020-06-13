@@ -1,4 +1,4 @@
-package com.devglan.thread;
+package com.devglan.thread.deadlock;
 
 public class Thread2 implements Runnable{
 
@@ -16,6 +16,8 @@ public class Thread2 implements Runnable{
         synchronized (r2){
             System.out.println("Lock on R2 acquired by " + Thread.currentThread().getName());
             try {
+                //acquire the lock for 2 sec just for demo. By this time another thread (implementation in Thread1) will acquire lock on r1
+                //and both are waiting for each other to release the lock.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

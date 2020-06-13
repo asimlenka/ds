@@ -2,6 +2,7 @@ package com.devglan.array;
 
 public class LargestSubArraySum {
 
+    //Kadane's algorithm
     //print the sum of largest sub array
     public static void main(String[] args){
         int[] arr = {-1, 5, -50, 3, -90};

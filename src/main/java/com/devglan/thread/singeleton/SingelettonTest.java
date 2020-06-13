@@ -1,4 +1,4 @@
-package com.devglan.thread;
+package com.devglan.thread.singeleton;
 
 public final class SingelettonTest {
 
@@ -15,6 +15,7 @@ public final class SingelettonTest {
     public static SingelettonTest getInstance(){
         if(obj == null){
             synchronized(SingelettonTest.class) {
+                //double check  -> preimptive lock
                 if (obj == null) {
                     obj = new SingelettonTest();
                 }
@@ -24,7 +25,7 @@ public final class SingelettonTest {
     }
 
     public static void main(String [] args) throws ClassNotFoundException {
-        Class<?> test = Class.forName("com.devglan.thread.SingelettonTest");
+        Class<?> test = Class.forName("com.devglan.thread.singeleton.SingelettonTest");
         test.getDeclaredConstructors()[0].setAccessible(true);
         SingelettonTest test1 = new SingelettonTest();
         System.out.println(SingelettonTest.getInstance());

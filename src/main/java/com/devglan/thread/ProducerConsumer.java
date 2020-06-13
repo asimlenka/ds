@@ -1,10 +1,10 @@
 package com.devglan.thread;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class ProducerConsumer {
     private Stack<String> list = new Stack<>();
-
     public synchronized void produce() {
         if (list.size() > 10){
             try {

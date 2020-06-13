@@ -11,7 +11,6 @@ public class KSorted {
         for (int i = 0; i < k; i++){
             minHeap.add(array[i]);
         }
-
         int index = 0;
         for (int i = k; i < length; i++){
             minHeap.add(array[i]);

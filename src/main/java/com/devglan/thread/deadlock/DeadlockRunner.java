@@ -1,4 +1,4 @@
-package com.devglan.thread;
+package com.devglan.thread.deadlock;
 
 public class DeadlockRunner {
 

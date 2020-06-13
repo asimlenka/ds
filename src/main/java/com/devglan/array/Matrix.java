@@ -2,6 +2,7 @@ package com.devglan.array;
 
 public class Matrix {
 
+    //find the transpose of the matrix and then swap the elements
     public static void rotateMatrix(int[][] matrix){
         int row = matrix.length;
         for (int i = 0; i < row; i++){

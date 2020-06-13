@@ -18,7 +18,24 @@ public class PossibleString {
         return result;
     }
 
+    public static void generateAllPossibleSubStringRec(String input){
+
+        t("", input);
+
+    }
+
+    private static void t(String perm, String input){
+        System.out.println(perm);
+        if (perm.length() == input.length()){
+            return;
+        }
+        for (int i = 0; i < input.length(); i++){
+            t(perm + input.charAt(i), input.substring(0, i) + input.substring(i, input.length() - 1));
+        }
+    }
+
     public static void main(String[] args) {
         PossibleString.generateAllPossibleSubString("rama");
+        PossibleString.generateAllPossibleSubStringRec("ramu");
     }
 }

@@ -19,7 +19,7 @@ public class BinarySearch {
     }
 
     public int binarySearchWithoutRecursion(int[] elements, int searchElemenet){
-        double maxIteration = Math.round(Math.log(elements.length));
+        double maxIteration = elements.length;
         int iterator = 0;
         int index = -1;
         int start = 0, last = elements.length,mid = 0;
